@@ -1,0 +1,38 @@
+# Config file for automatic testing at travis-ci.org
+
+language: python
+dist: xenial
+python:
+  - 3.7
+
+before_install:
+- echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
+# Command to run tests, e.g. python setup.py test
+install:
+- pip install pipenv
+- pipenv install --system --deploy --ignore-pipfile
+
+branches:
+  only:
+  - master
+  - develop
+
+stages:
+  - test
+  - name: answers
+    if: branch = master
+
+jobs:
+  include:
+    - stage: test
+      script: pytest -v
+      install:
+        - pip install pipenv
+        - pipenv install --system --deploy --dev --ignore-pipfile
+
+    - stage: answers
+      install:
+        - pip install pipenv
+        - pipenv install --system --deploy --dev --ignore-pipfile
+      script:
+      - python3 -m final_project

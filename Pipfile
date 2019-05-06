@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+pytest-cov = "*"
+
+[packages]
+final_project = {editable = true,path = "."}
+pset-utils = {editable = true,git = "https://github.com/csci-e-29/2019sp-pset-utils-elsalmi"}
+seaborn = "*"
+dask = "*"
+openpyxl = "*"
+
+[requires]
+python_version = "3.7"
