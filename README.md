@@ -10,7 +10,7 @@ The main goals of this project are to:
 
 •	Come up with a framework to transition using Dask at work.
    
-   a.	Look at the possibility of setting up a cluster 
+        a.	Look at the possibility of setting up a cluster 
 
 •	Compare the time reduction associated with using Dask as opposed to Pandas.
 
